@@ -1,3 +1,3 @@
 require_relative 'controller'
 
-Controller.new
+Controller.new('flashcard_samples.txt')
