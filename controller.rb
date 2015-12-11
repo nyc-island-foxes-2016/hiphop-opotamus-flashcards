@@ -1,8 +1,13 @@
 require_relative 'view'
-class Controller
+require_relative 'deck'
+require_relative 'txtable'
 
-  def initialize
-    # @game = Deck.new
+class Controller
+  include Txtable
+
+  def initialize(file_path)
+    file_pairs = generate_line_pairs_from_txt(file_path)
+    @game = Deck.new(convert_file_pairs_to_hashes(file_pairs))
     @view = View.new
     run_interface
   end
@@ -24,6 +29,10 @@ class Controller
     @view.display("Bye!")
   end
 
-end
+  def convert_file_pairs_to_hashes(file_pairs)
+    file_pairs.map do |pair|
+      [:question, :answer].zip(pair).to_h
+    end
+  end
 
-test = Controller.new
+end

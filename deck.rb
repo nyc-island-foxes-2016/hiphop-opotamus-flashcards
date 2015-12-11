@@ -2,8 +2,8 @@ require_relative 'card'
 class Deck
   attr_reader :deck, :empty
 
-  def initialize(array)
-    @deck = create_deck
+  def initialize(question_answer_pairs)
+    @deck = create_deck(question_answer_pairs)
     @empty = false
   end
 
@@ -15,8 +15,8 @@ class Deck
     @deck.length == 0
   end
 
-  def create_deck
-    array.map do |hash|
+  def create_deck(question_answer_pairs)
+    question_answer_pairs.map do |hash|
       Card.new(hash)
     end
   end
