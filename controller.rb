@@ -1,7 +1,6 @@
 require_relative 'view'
 require_relative 'deck'
 require_relative 'txtable'
-require 'pry'
 
 class Controller
   include Txtable

@@ -1,5 +1,3 @@
-require 'pry'
-
 module Txtable
 
   def generate_line_pairs_from_txt(file_path)
