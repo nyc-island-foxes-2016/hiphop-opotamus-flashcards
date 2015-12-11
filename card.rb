@@ -9,7 +9,7 @@ class Card
   def display_question
     "Definition #{@question}"
   end
-
+]
   def display_answer
     "#{@answer}"
   end
