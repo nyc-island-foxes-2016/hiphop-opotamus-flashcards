@@ -1,6 +1,7 @@
 require_relative 'view'
 require_relative 'deck'
 require_relative 'txtable'
+require 'pry'
 
 class Controller
   include Txtable
@@ -15,15 +16,15 @@ class Controller
   def run_interface
     input = ""
     @view.display_welcome_message
+    current_card = @game.draw_card
     until input == "exit"
-      @view.display("This is a flash card definition")
+      @view.display(current_card.question)
       input = @view.get_input
-      if input == "right"
+      if input == current_card.answer
         @view.display("Correct!")
-        #display next card
-      elsif input == "wrong"
+        current_card = @game.draw_card
+      else
         @view.display("Try again.")
-        input = @view.get_input
       end
     end
     @view.display("Bye!")

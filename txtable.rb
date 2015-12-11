@@ -3,7 +3,7 @@ require 'pry'
 module Txtable
 
   def generate_line_pairs_from_txt(file_path)
-    txt_lines = File.read(file_path).split('\n')
+    txt_lines = File.read(file_path).split(/\n/)
     pair_txt_lines(txt_lines)
   end
 
